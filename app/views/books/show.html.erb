@@ -30,10 +30,18 @@
   <%=h @book.description %>
 </p>
 <p>
-  <strong>Description:</strong>
-
-  <%= link_to @book.reviews.length.to_s, reviews_path(:search => @book.id, :target => '_blank', :layout => false) %>
+  <strong>Reviews:</strong>
+    <% if @book.reviews.length == 0 %>
+    none
+    <% else %>
+  <%= link_to @book.reviews.length.to_s, reviews_path(:search => @book.id) %>
+    <% end %>
+  <% if logged_in? && @readings.include?(@book) && !have_review?(@book) %>
+    <%= link_to "Add Review", new_review_path(:book_id => @book.id) %>
+  <% end %>
 </p>
+
+
 <p class="added_by">
   <strong>Added by:</strong>
   <span><%= link_to @book.user.login, user_path(@book.user_id) %></span>
@@ -48,7 +56,7 @@
   <%= link_to 'I have read it', readings_path(:read_id => @book.id), :method => :post %>
     <% end %>
 </p>
-<p><%= link_to "New Review", new_review_path(:book_id => @book.id) %></p>
+
 <p>
 
         <% if @current_user.id == @book.user.id %>

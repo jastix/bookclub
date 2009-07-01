@@ -11,6 +11,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @genres = @book.genres.map {|genre| genre.name}.compact.join(' , ')
     @authors = @book.authors
+    @readings = @current_user.readings.map{|b| b.read }
   end
 
   def new
