@@ -1,3 +1,4 @@
+<%# encoding: utf-8 %>
 <h2> Book </h2>
 
 <p>
@@ -29,6 +30,7 @@
   <strong>Description:</strong>
   <%=h @book.description %>
 </p>
+<div id="reviews_count">
 <p>
   <strong>Reviews:</strong>
     <% if @book.reviews.length == 0 %>
@@ -36,29 +38,27 @@
     <% else %>
   <%= link_to @book.reviews.length.to_s, reviews_path(:search => @book.id) %>
     <% end %>
-  <% if logged_in? && @readings.include?(@book) && !have_review?(@book) %>
+    <% if logged_in? && @readings.include?(@book) && !have_review?(@book) %>
     <%= link_to "Add Review", new_review_path(:book_id => @book.id) %>
-  <% end %>
+    <% end %>
 </p>
-
+</div>
 
 <p class="added_by">
   <strong>Added by:</strong>
   <span><%= link_to @book.user.login, user_path(@book.user_id) %></span>
-    <% if logged_in? %>
 
-    <% if @book.user != @current_user && !@current_user.friends.include?(@book.user)%>
-  <%= link_to 'Add friend', friendships_path(:friend_id => @book.user_id), :method => :post %>
-    <% end %>
+
+
 </p>
 <p>
-    <% if !@current_user.reads.include?(@book)%>
+    <% if logged_in? %>
+    <% if  !@current_user.reads.include?(@book)%>
   <%= link_to 'I have read it', readings_path(:read_id => @book.id), :method => :post %>
     <% end %>
 </p>
 
 <p>
-
         <% if @current_user.id == @book.user.id %>
   <%= link_to "Edit", edit_book_path(@book) %> |
   <%= link_to "Destroy", @book, :confirm => 'Are you sure?', :method => :delete %> |

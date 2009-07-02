@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |wants|
       wants.html
+
     end
     else
         redirect_to root_path

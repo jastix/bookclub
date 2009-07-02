@@ -1,3 +1,4 @@
+<%# encoding:utf-8 %>
 <h2> Author </h2>
 
 <p>
@@ -13,12 +14,21 @@
   <%= auto_link @author.website %>
 </p>
 <p>
-    <%= render :partial => 'books', :object => @books %>
+   <strong>Books:</strong>
+    <% if @books && !@books.empty?%>
+    <ol>
+        <% @books.each do |book|%>
+        <li><%= link_to book.title, book %></li>
+        <% end %>
+    </ol>
+    <% end %>
 </p>
 
 <p>
+    <% if logged_in? %>
   <%= link_to "Edit", edit_author_path(@author) %> |
   <%= link_to "Destroy", @author, :confirm => 'Are you sure?', :method => :delete %> |
+    <% end %>
   <%= link_to "View All", authors_path %>
 </p>
 

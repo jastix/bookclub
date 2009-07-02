@@ -4,7 +4,7 @@ module ApplicationHelper
 def cloud(genres)
     return if genres.blank?
     output = ""
-    mid = genres.collect {|i| i.books.count}.max / 1.5
+    mid = genres.collect {|i| i.books.count}.max / 1.7
 
     genres.each do |g|
       size = 100 * g.books.count / mid

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class BooksController < ApplicationController
 
     before_filter :login_required, :only => ["new", "create", "edit", "update"]
@@ -11,7 +12,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @genres = @book.genres.map {|genre| genre.name}.compact.join(' , ')
     @authors = @book.authors
+    if @current_user
     @readings = @current_user.readings.map{|b| b.read }
+    end
   end
 
   def new

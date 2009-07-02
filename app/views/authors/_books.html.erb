@@ -1,9 +1,0 @@
-  <strong>Books:</strong>
-    <% if @books && !@books.empty?%>
-    <ol>
-        <% @books.each do |book|%>
-        <li><%= link_to book.title, book %></li>
-        <% end %>
-    </ol>
-    <% end %>
-
