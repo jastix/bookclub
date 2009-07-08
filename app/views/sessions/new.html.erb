@@ -10,4 +10,7 @@
     </p>
 <p><%= submit_tag "Log in" %></p>
 <% end %>
+              <% if !logged_in? %>
+              <em>or <%= link_to 'Signup', new_user_path %></em>
+              <% end %>
 
