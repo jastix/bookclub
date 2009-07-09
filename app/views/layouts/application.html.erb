@@ -1,19 +1,20 @@
 <%# encoding: utf-8 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title> Bookclub - <%= params[:controller].capitalize %> - <%= params[:action].capitalize %> </title>
     <%= stylesheet_link_tag "style" %>
+
     <%= javascript_include_tag :defaults %>
-    <%= javascript_include_tag 'unitpngfix' %>
+
   </head>
 
  <body>
 
 <div id="main_container">
-	    <div class="top_leafs"><img src="images/top_leafs.png" alt="" title=" "/></div>
-
+       <!-- <div class="top_leafs"><img src="images/top_leafs.png" alt="" title=" "/></div> -->
+        <div class="to_leafs"><%= image_tag 'top_leafs.gif' %> </div>
 	 <div id="header">
     	<div class="logo">
        <%= link_to 'Book Club', books_path %>
@@ -32,6 +33,8 @@
                 <li><%= link_to "Genres", genres_path %></li>
                 <li><%= link_to "Authors", authors_path %></li>
                 <li><%= link_to "Reviews", reviews_path %></li>
+                <% if logged_in? %><li><em><%= link_to 'Log out', session_path, :method => 'delete' %></em></li><% end %>
+                <li>Books</li>
             </ul>
         </div>
     </div> <!-- header -->
@@ -58,6 +61,7 @@
 
                 <div class="bottom_right">
                 	<%= link_to image_tag("join_club.gif",:border => "0"), new_session_path, {:alt => "join"} %>
+
                     <%= link_to image_tag ("csstemplatesmarket.gif", :border => 0), 'http://csstemplatesmarket.com', {:alt => 'csstemplatesmarket'}%>
                 </div>
 

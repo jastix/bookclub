@@ -68,12 +68,13 @@ margin:auto;
 padding:0px;
 position:relative;
 }
-.top_leafs{
+.to_leafs{
 position:absolute;
 top:0px;
 left:11px;
 z-index:200;
 }
+
 #header{
 width:960px;
 height:196px;
@@ -255,5 +256,30 @@ text-align:center;
 padding:5px 0 0 0;
 font-size:11px;
 border-top:1px #cebf91 dashed;
+}
+
+.form_view {
+line-height:17px;
+margin:0;
+padding:15px 10px 10px 90px;
+text-align:justify;
+}
+
+.form_view h2 {
+    font-size: 16px;
+}
+
+.tags_genres {
+    float: right;
+    color: green;
+
+}
+.tags_genres a {
+    color: #004358;
+    text-decoration: none;
+}
+
+.tags_genres a:hover {
+    background: #FF9933;
 }
 

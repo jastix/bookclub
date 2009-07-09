@@ -1,4 +1,5 @@
 <%# encoding: utf-8%>
+<div class="form_view">
 <h2> Authors </h2>
 
 <table>
@@ -20,6 +21,8 @@
     </tr>
   <% end %>
 </table>
-
+<% if logged_in? %>
 <p><%= link_to "New Author", new_author_path %></p>
+<% end %>
+</div>
 

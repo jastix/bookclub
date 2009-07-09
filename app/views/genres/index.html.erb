@@ -1,3 +1,4 @@
+<div class="form_view">
 <h2> Genres </h2>
 
 <div class='tags_genres'>
@@ -22,6 +23,8 @@
 </table>
 
 
-
+<% if logged_in? %>
 <p><%= link_to "New Genre", new_genre_path %></p>
+<% end %>
+</div>
 
