@@ -29,12 +29,12 @@
         <div class="menu">
             <ul>
                 <li class="selected"><%= link_to "Main", books_path %> </li>
-                <li><%= link_to "Users", users_path %></li>
-                <li><%= link_to "Genres", genres_path %></li>
+                <li><%= link_to 'Books', list_path %></li>
                 <li><%= link_to "Authors", authors_path %></li>
                 <li><%= link_to "Reviews", reviews_path %></li>
+                <li><%= link_to "Genres", genres_path %></li>
                 <% if logged_in? %><li><em><%= link_to 'Log out', session_path, :method => 'delete' %></em></li><% end %>
-                <li>Books</li>
+
             </ul>
         </div>
     </div> <!-- header -->

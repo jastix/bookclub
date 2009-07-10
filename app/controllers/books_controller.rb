@@ -4,8 +4,13 @@ class BooksController < ApplicationController
     before_filter :login_required, :only => ["new", "create", "edit", "update"]
 
   def index
-    #@books = Book.all
-    @books = Book.search(params[:search])
+    @books = Book.all
+
+  end
+
+
+  def list
+      @books = Book.search(params[:search])
   end
 
   def show

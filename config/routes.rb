@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :books
 
-
+  map.list 'list', :controller => 'books', :action => 'list'
 
   map.resources :users
 
