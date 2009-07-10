@@ -33,7 +33,8 @@
     <%= render :text => "No results found" %>
     <% end %>
 
-
+<% if logged_in? %>
 <p><%= link_to "New Book", new_book_path %></p>
+<% end %>
 </div>
 
