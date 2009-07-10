@@ -7,7 +7,7 @@ class BooksController < ApplicationController
     revs = Review.all
     @review1 = Review.find(revs.rand.id)
     @review2 = Review.find(revs.rand.id)
-    @books = Book.all(:order => 'created_at DESC', :limit => 4)
+    @books = Book.all(:order => 'created_at DESC', :limit => 3)
 
   end
 
