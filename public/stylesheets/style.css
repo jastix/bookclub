@@ -191,6 +191,7 @@ clear:both;
 float:left;
 width:290px;
 padding:5px 0 5px 0;
+border-bottom:1px #cebf91 dashed;
 }
 .date_box{
 width:47px;

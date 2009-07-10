@@ -4,7 +4,10 @@ class BooksController < ApplicationController
     before_filter :login_required, :only => ["new", "create", "edit", "update"]
 
   def index
-    @books = Book.all
+    revs = Review.all
+    @review1 = Review.find(revs.rand.id)
+    @review2 = Review.find(revs.rand.id)
+    @books = Book.all(:order => 'created_at DESC', :limit => 4)
 
   end
 

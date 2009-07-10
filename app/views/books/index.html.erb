@@ -18,7 +18,7 @@
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
 
-                    <h1>Books</h1>
+                    <h1>Authors</h1>
                     <div class="photos_block">
 
                     	<div class="photo_box">
@@ -44,53 +44,39 @@
                      <h1>Reviews</h1>
 
                     <div class="tip_box">
-                    <h2>Eiusmod tempor incididunt.</h2>
+                    <h2><%= @review1.book.title %></h2>
                     <p class="tips">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <%= @review1.review[0..30] %>
                     </p>
-                    <a href="#" class="read_more">read more</a>
-
+                    <%= link_to 'read more', review_path(@review1.id), :class => 'read_more' %>
                     </div>
 
 
                     <div class="tip_box">
-                    <h2>Eiusmod tempor incididunt.</h2>
+                    <h2><%= @review2.book.title %></h2>
                     <p class="tips">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <%= @review2.review[0..30] %>
                     </p>
-                    <a href="#" class="read_more">read more</a>
-
+                    <%= link_to 'read more', review_path(@review2.id), :class => 'read_more' %>
                     </div>
 
 
                      <h1>New books</h1>
-
+                    <% for book in @books  %>
                     <div class="news_box">
                     	<div class="date_box">
-                        	<span class="day">24</span><br />
-                            <span class="month">febr</span>
+                        	<span class="day"><%= book.created_at.day %></span><br />
+                            <span class="month"><%= book.created_at.strftime("%b") %></span>
                         </div>
                         <div class="news_content">
-                        <h2>Eiusmod tempor incididunt.</h2>
+                        <h2><%=  book.title %></h2>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
+                        <%= book.description[0..60] %>
                         </p>
+                        <%= link_to 'read more', book_path(book.id), :class => 'read_more' %>
                         </div>
-
                     </div> <!-- news_box -->
+                    <% end %>
 
-                     <div class="news_box">
-                    	<div class="date_box">
-                        	<span class="day">08</span><br />
-                            <span class="month">may</span>
-                        </div>
-                        <div class="news_content">
-                        <h2>Eiusmod tempor incididunt.</h2>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-                        </p>
-                        </div>
-
-                    </div> <!-- news_box -->
             </div> <!-- right_content -->
 
