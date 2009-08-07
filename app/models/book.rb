@@ -1,13 +1,13 @@
 class Book < ActiveRecord::Base
   belongs_to :user
 
-  has_many :categories
+  has_many :categories , :dependent => :destroy
   has_many :genres, :through => :categories
 
-  has_many :manuscripts
+  has_many :manuscripts, :dependent => :destroy
   has_many :authors, :through => :manuscripts
 
-  has_many :readings , :foreign_key => 'read_id'
+  has_many :readings , :foreign_key => 'read_id' , :dependent => :destroy
   has_many :readers, :through => :readings
 
   has_many :reviews

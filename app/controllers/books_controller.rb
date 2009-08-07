@@ -96,7 +96,6 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     if @current_user.id == @book.user.id && @book.readers.length == 0
-    @book = Book.find(params[:id])
     @book.destroy
     flash[:notice] = "Successfully removed book."
     redirect_to books_url
