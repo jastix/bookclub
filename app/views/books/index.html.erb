@@ -44,20 +44,24 @@
                      <h1>Reviews</h1>
 
                     <div class="tip_box">
+                    <% if @review1 %>
                     <h2><%= @review1.book.title %></h2>
                     <p class="tips">
                     <%= @review1.review[0..30] %>
                     </p>
                     <%= link_to 'read more', review_path(@review1.id), :class => 'read_more' %>
+                    <% end %>
                     </div>
 
 
                     <div class="tip_box">
+                    <% if @review2 %>
                     <h2><%= @review2.book.title %></h2>
                     <p class="tips">
                     <%= @review2.review[0..30] %>
                     </p>
                     <%= link_to 'read more', review_path(@review2.id), :class => 'read_more' %>
+                    <% end %>
                     </div>
 
 

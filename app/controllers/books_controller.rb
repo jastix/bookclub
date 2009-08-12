@@ -5,8 +5,8 @@ class BooksController < ApplicationController
 
   def index
     revs = Review.all
-    @review1 = Review.find(revs.rand.id)
-    @review2 = Review.find(revs.rand.id)
+    @review1 = Review.find(revs.rand.id) unless revs.empty?
+    @review2 = Review.find(revs.rand.id) unless revs.empty?
     @books = Book.all(:order => 'created_at DESC', :limit => 3)
 
   end
