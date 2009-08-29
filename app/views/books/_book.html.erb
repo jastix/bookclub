@@ -1,4 +1,4 @@
-
+<%# encoding: utf-8 %>
 <tr>
 
       <td><%= link_to book.title, book %></td>
@@ -6,7 +6,7 @@
       <td><%=h book.published_year %></td>
       <td><%=h book.genres.map {|genre| genre.name}.compact.join(' , ') %></td>
       <td><%=h book.isbn %></td>
-      <td><%=h book.description.to_s[0..30] %></td>
+      <td><%=h book.description %></td>
       <td><%= link_to book.user.name, user_path(book.user_id) %></td>
       <td><%= book.readers.length %></td>
       <td><%= link_to "Show", book %></td>
